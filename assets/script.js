@@ -1,15 +1,19 @@
 // Original image:
-// https://dribbble.com/shots/5619509-Animated-Tab-Bar
+// https://dribbble.com/shots/5619509-Animated-Tab-Bar #2cced4
 
 "use strict"; 
 
 const body = document.body;
-const bgColorsBody = ["#692cd4", "#2cced4", "#9999fb", "#ffe797", "#6e1173"];
+const bgColorsBody = ["linear-gradient(3deg, #692cd4, #976de0)", "linear-gradient(169deg, #ffe797, #ffc400)", "#9999fb", "#8ce294", "#6e1173"];
 const menu = body.querySelector(".menu");
 const menuItems = menu.querySelectorAll(".menu__item");
 const menuBorder = menu.querySelector(".menu__border");
 let activeItem = menu.querySelector(".active");
 const container = body.querySelector(".container")
+const firstSlide = body.querySelector('.first-slide')
+const fourthSilde = body.querySelector('.fourth-slide')
+const fifthSilde = body.querySelector('.fifth-slide')
+const childOpen = body.querySelectorAll('.childOpen')
 
 function clickItem(item, index) {
 
@@ -23,13 +27,38 @@ function clickItem(item, index) {
 
     
     item.classList.add("active");
-    container.style.backgroundColor = bgColorsBody[index];
+    container.style.background = bgColorsBody[index];
     activeItem = item;
     offsetMenuBorder(activeItem, menuBorder);
     
     
 }
-
+menuItems[0].addEventListener('click',()=>{
+    firstSlide.style.display="block"
+    fourthSilde.style.display="none"
+    fifthSilde.style.display="none"
+})
+menuItems[1].addEventListener('click',()=>{
+    firstSlide.style.display="none"
+    fourthSilde.style.display="none"
+    fifthSilde.style.display="none"
+})
+menuItems[2].addEventListener('click',()=>{
+    firstSlide.style.display="none"
+    fourthSilde.style.display="none"
+    fifthSilde.style.display="none"
+})
+menuItems[3].addEventListener('click',()=>{
+    firstSlide.style.display="none"
+    fourthSilde.style.display="flex"
+    fifthSilde.style.display="none"
+})
+menuItems[4].addEventListener('click',()=>{
+    firstSlide.style.display="none"
+    fourthSilde.style.display="none"
+    fifthSilde.style.display="block"
+})
+document.querySelector('.about-button').addEventListener('click',()=>{menuItems[1].click()})
 function offsetMenuBorder(element, menuBorder) {
 
     const offsetActiveItem = element.getBoundingClientRect();
@@ -50,3 +79,21 @@ window.addEventListener("resize", () => {
     offsetMenuBorder(activeItem, menuBorder);
     menu.style.setProperty("--timeOut", "none");
 });
+
+childOpen.forEach((each)=>{each.addEventListener('click',()=>{
+    for (let index = 0; index < childOpen.length; index++) {
+        if(childOpen[index].classList.contains('open')){
+
+            childOpen[index].classList.remove('open');
+        }
+        
+    }
+    each.classList.add('open')
+})})
+
+
+
+
+
+// firstSlide.style.display="none"
+// fourthSilde.style.display="flex"

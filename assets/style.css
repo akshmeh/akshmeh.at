@@ -30,14 +30,34 @@ body{
 }
 .main-contain{
     width: 80vw;
+    height: 80vh;
     padding: 4rem;
 }
 .container{
     width: 100%;
-    height: 85vh;
+    height: 100%;
     border-radius: 25px;
     background: linear-gradient(3deg, #692cd4, #976de0);
+    /* animation: slide-text-animation 5s infinite linear; */
 }
+/* @keyframes slide-text-animation {
+  0% {
+    background-position: 0 0;
+    
+  }
+  25% {
+    background-position: 25% 25%;
+    
+  }
+  50% {
+    background-position: 50% 50%;
+    
+  }
+  100% {
+    background-position: 100% 100%;
+    
+  }
+} */
 .first-slide{
     position: relative;
     width: 100%;
@@ -84,32 +104,88 @@ body{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border: 1px solid #000;
+    color: #ffe97e;
 }
-.typing-p {
-    color: #fff;
-    overflow: hidden;
-    border-right: 0.15em solid rgb(0, 0, 0);
-    white-space: nowrap;
-    letter-spacing: 0.15em;
-    animation: typing 3.5s steps(30, end) 1,
-      cursor-blink 0.75s step-end infinite;
-    /* animation-delay: 3.5s; */
+.code .typing-p:nth-child(1) {
+  opacity: 0;
+  font-family: "Work Sans", sans-serif;
+  /* margin: 0 auto auto auto; */
+  background: linear-gradient(to right, #f8b195, #f67280, #c06c84);
+  font-weight: 800;
+  font-size: 18px;  
+  width: 220px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+
+  overflow: hidden;
+  animation: shring-animation 2.2s steps(40,end) 2s forwards, blink .5s step-end infinite alternate;
 }
-@keyframes typing {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
+
+.code .typing-p:nth-child(2) {
+  background: linear-gradient(to top left, #f8b195, #f67280, #c06c84);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slide-text-animation 5s 2s infinite linear forwards;
 }
-@keyframes cursor-blink {
-    0%, 100% {
-        border-color: transparent;
-    }
-    50% {
-        border-color: rgb(139, 139, 139);
-    }
+
+@keyframes shring-animation {
+  0% {
+    background-position: 0 0;
+    opacity: 0;
+    width: 0;
+  }
+  1% {
+    background-position: 0 0;
+    opacity: 1;
+    border-right: 1px solid orange;
+  }
+  50% {
+    background-position: 150px 0;
+    opacity: 1;
+    border-right: 1px solid orange;
+  }
+  100% {
+    background-position: 400px 0;
+    opacity: 1;
+    border-right: 1px solid orange;
+  }
+}
+@keyframes slide-text-animation {
+  0% {
+    background-position: 0 0;
+    
+  }
+  1% {
+    background-position: 0 0;
+    
+  }
+  50% {
+    background-position: 150px 150px;
+    
+  }
+  100% {
+    background-position: 400px 400px;
+    
+  }
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  1%, 99%{
+    border-right: 1px solid orange;
+  }
+  100%{
+    border-right: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 .code-body{
     padding:30px 10px;
@@ -536,7 +612,292 @@ color: #0083dc;
 }
   
 /* Floati Element */
+
 /* Second Slide */
+.second-slide{
+
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+.second-slide .illustration-editor {
+  margin-top: 8rem;
+  margin-right: 7rem;
+  display: grid;
+  grid-template-rows: 24px auto;
+  justify-items: center;
+  position: relative;
+}
+
+.second-slide .code {
+  position: absolute;
+  width: 290px;
+  height: 145px;
+  background: #1D1E22;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  z-index: 5;
+}
+.second-slide .code header {
+  display: grid;
+  grid-template-columns: 36px auto 36px;
+  align-items: center;
+}
+.second-slide .code header svg {
+  margin: 10px;
+}
+.second-slide .code header h1 {
+  font-family: Lato, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 1.57px;
+  color: #C5C8D4;
+  margin: 0;
+}
+.second-slide .code-html {
+  left: -100px;
+  top: 40px;
+}
+.second-slide .code-css {
+  left: -25px;
+  top: 200px;
+}
+.second-slide .code-js {
+  left: -175px;
+  top: 360px;
+}
+.second-slide .code .code-content {
+  margin: 0 10px 10px;
+  color: white;
+}
+.second-slide .code .code-content .c-r {
+  color: #A88038;
+}
+.second-slide .code .code-content .c-o {
+  color: #DE7300;
+}
+.second-slide .code .code-content .c-y {
+  color: #E1CA72;
+}
+.second-slide .code .code-content .c-g {
+  color: #74B087;
+}
+.second-slide .code .code-content .c-p {
+  color: #9F8198;
+}
+.second-slide .code .code-content .c-b {
+  color: #7A99AD;
+}
+.second-slide .code .code-content .c-c {
+  color: #666666;
+}
+.second-slide .code-css .code-content code .line-1 {
+  width: 0%;
+  margin: 0;
+  border-right: 0.15em solid transparent;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+.second-slide .code-css .code-content code .line-2 {
+  width: 0%;
+  margin: 0;
+  border-right: 0.15em solid transparent;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+.second-slide .code-css .code-content code .line-3 {
+  width: 0%;
+  margin: 0;
+  border-right: 0.15em solid transparent;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+.second-slide .code-css .code-content code .line-4 {
+  width: 0%;
+  margin: 0;
+  border-right: 0.15em solid transparent;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+.second-slide .code-css .code-content code .line-5 {
+  width: 0%;
+  margin: 0;
+  border-right: 0.15em solid transparent;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+.second-slide .code-css .code-content code .line-1 {
+  animation: typing-1 3s 0s steps(30, end) forwards, cursor 1s linear 0s 3;
+}
+.second-slide .code-css .code-content code .line-2 {
+  animation: typing-2 3s 3s steps(30, end) forwards, cursor 1s linear 3s 3;
+}
+.second-slide .code-css .code-content code .line-3 {
+  animation: typing-3 3s 6s steps(30, end) forwards, cursor 1s linear 6s 3;
+}
+.second-slide .code-css .code-content code .line-4 {
+  animation: typing-4 3s 9s steps(30, end) forwards, cursor 1s linear 9s 3;
+}
+.second-slide .code-css .code-content code .line-1, .code-css .code-content code .line-3, .code-css .code-content code .line-4 {
+  animation-duration: 1s;
+  animation-timing-function: steps(10, end);
+}
+.second-slide .code-css .code-content code .line-5 {
+  border-color: transparent;
+  animation: typing-5 3s 12s steps(30, end) forwards, cursor-persist 1s linear 12s infinite;
+}
+.second-slide .code-css .code-content code .line-2 {
+  margin-left: 2rem;
+}
+.second-slide .code-css .code-content code .line-3, .code-css .code-content code .line-4, .code-css .code-content code .line-5 {
+  margin-left: 4rem;
+}
+
+.second-slide .editor-block {
+  position: relative;
+  display: block;
+  width: 500px;
+  height: 421px;
+  background: linear-gradient(109.61deg, #4C4F5A 4.26%, #202125 84.84%);
+  border-radius: 10px;
+}
+
+@keyframes typing-1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+@keyframes typing-2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 220px;
+  }
+}
+@keyframes typing-3 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 70px;
+  }
+}
+@keyframes typing-4 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 75px;
+  }
+}
+@keyframes typing-5 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 141px;
+  }
+}
+@keyframes cursor {
+  from, to, 20%, 80% {
+    border-color: transparent;
+  }
+  25%, 75% {
+    border-color: white;
+  }
+}
+@keyframes cursor-persist {
+  from, 45% {
+    border-color: transparent;
+  }
+  50%, to {
+    border-color: white;
+  }
+}
+/* Third Slide */
+.third-slide{
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background:linear-gradient(#20217c, #4b4ed5); */
+  /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='800' preserveAspectRatio='none' viewBox='0 0 1440 800'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1070%26quot%3b)' fill='none'%3e%3crect width='1440' height='800' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M280.93 -97.82L377.06 -42.32L377.06 68.68L280.93 124.18L184.8 68.68L184.8 -42.32zM473.2 235.18L569.33 290.68L569.33 401.68L473.2 457.18L377.06 401.68L377.06 290.68zM569.33 401.68L665.46 457.18L665.46 568.18L569.33 623.68L473.2 568.18L473.2 457.18zM665.46 -97.82L761.59 -42.32L761.59 68.68L665.46 124.18L569.33 68.68L569.33 -42.32zM665.46 235.18L761.59 290.68L761.59 401.68L665.46 457.18L569.33 401.68L569.33 290.68zM761.59 401.68L857.72 457.18L857.72 568.18L761.59 623.68L665.46 568.18L665.46 457.18zM953.85 68.68L1049.99 124.18L1049.99 235.18L953.85 290.68L857.72 235.18L857.72 124.18zM1434.51 568.18L1530.64 623.68L1530.64 734.68L1434.51 790.18L1338.38 734.68L1338.38 623.68zM1530.64 734.68L1626.77 790.18L1626.77 901.18L1530.64 956.68L1434.51 901.18L1434.51 790.18z' stroke='%2303305d' stroke-width='2'%3e%3c/path%3e%3cpath d='M269.83 -97.82 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM365.96 -42.32 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM365.96 68.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM269.83 124.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM173.7 68.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM173.7 -42.32 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM462.1 235.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM558.23 290.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM558.23 401.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM462.1 457.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM365.96 401.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM365.96 290.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM654.36 457.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM654.36 568.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM558.23 623.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM462.1 568.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM654.36 -97.82 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM750.49 -42.32 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM750.49 68.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM654.36 124.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM558.23 68.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM558.23 -42.32 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM654.36 235.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM750.49 290.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM750.49 401.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM846.62 457.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM846.62 568.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM750.49 623.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM942.75 68.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1038.89 124.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1038.89 235.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM942.75 290.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM846.62 235.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM846.62 124.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1423.41 568.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1519.54 623.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1519.54 734.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1423.41 790.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1327.28 734.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1327.28 623.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1615.67 790.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1615.67 901.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1519.54 956.68 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0zM1423.41 901.18 a11.1 11.1 0 1 0 22.2 0 a11.1 11.1 0 1 0 -22.2 0z' fill='%2303305d'%3e%3c/path%3e%3cpath d='M95.47 70.7L162.15 109.2L162.15 186.2L95.47 224.7L28.78 186.2L28.78 109.2zM95.47 763.7L162.15 802.2L162.15 879.2L95.47 917.7L28.78 879.2L28.78 802.2zM162.15 186.2L228.84 224.7L228.84 301.7L162.15 340.2L95.47 301.7L95.47 224.7zM228.84 532.7L295.52 571.2L295.52 648.2L228.84 686.7L162.15 648.2L162.15 571.2zM162.15 648.2L228.84 686.7L228.84 763.7L162.15 802.2L95.47 763.7L95.47 686.7zM362.21 70.7L428.9 109.2L428.9 186.2L362.21 224.7L295.52 186.2L295.52 109.2zM295.52 186.2L362.21 224.7L362.21 301.7L295.52 340.2L228.84 301.7L228.84 224.7zM362.21 301.7L428.9 340.2L428.9 417.2L362.21 455.7L295.52 417.2L295.52 340.2zM362.21 532.7L428.9 571.2L428.9 648.2L362.21 686.7L295.52 648.2L295.52 571.2zM362.21 763.7L428.9 802.2L428.9 879.2L362.21 917.7L295.52 879.2L295.52 802.2zM428.9 -44.8L495.58 -6.3L495.58 70.7L428.9 109.2L362.21 70.7L362.21 -6.3zM495.58 301.7L562.27 340.2L562.27 417.2L495.58 455.7L428.9 417.2L428.9 340.2zM428.9 417.2L495.58 455.7L495.58 532.7L428.9 571.2L362.21 532.7L362.21 455.7zM495.58 763.7L562.27 802.2L562.27 879.2L495.58 917.7L428.9 879.2L428.9 802.2zM628.95 301.7L695.64 340.2L695.64 417.2L628.95 455.7L562.27 417.2L562.27 340.2zM562.27 417.2L628.95 455.7L628.95 532.7L562.27 571.2L495.58 532.7L495.58 455.7zM762.32 301.7L829.01 340.2L829.01 417.2L762.32 455.7L695.64 417.2L695.64 340.2zM762.32 532.7L829.01 571.2L829.01 648.2L762.32 686.7L695.64 648.2L695.64 571.2zM829.01 -44.8L895.7 -6.3L895.7 70.7L829.01 109.2L762.32 70.7L762.32 -6.3zM895.7 70.7L962.38 109.2L962.38 186.2L895.7 224.7L829.01 186.2L829.01 109.2zM829.01 417.2L895.7 455.7L895.7 532.7L829.01 571.2L762.32 532.7L762.32 455.7zM829.01 648.2L895.7 686.7L895.7 763.7L829.01 802.2L762.32 763.7L762.32 686.7zM1029.07 70.7L1095.75 109.2L1095.75 186.2L1029.07 224.7L962.38 186.2L962.38 109.2zM962.38 186.2L1029.07 224.7L1029.07 301.7L962.38 340.2L895.7 301.7L895.7 224.7zM1029.07 532.7L1095.75 571.2L1095.75 648.2L1029.07 686.7L962.38 648.2L962.38 571.2zM1095.75 -44.8L1162.44 -6.3L1162.44 70.7L1095.75 109.2L1029.07 70.7L1029.07 -6.3zM1095.75 648.2L1162.44 686.7L1162.44 763.7L1095.75 802.2L1029.07 763.7L1029.07 686.7zM1162.44 763.7L1229.13 802.2L1229.13 879.2L1162.44 917.7L1095.75 879.2L1095.75 802.2zM1229.13 -44.8L1295.81 -6.3L1295.81 70.7L1229.13 109.2L1162.44 70.7L1162.44 -6.3zM1295.81 70.7L1362.5 109.2L1362.5 186.2L1295.81 224.7L1229.13 186.2L1229.13 109.2zM1229.13 186.2L1295.81 224.7L1295.81 301.7L1229.13 340.2L1162.44 301.7L1162.44 224.7zM1295.81 532.7L1362.5 571.2L1362.5 648.2L1295.81 686.7L1229.13 648.2L1229.13 571.2zM1229.13 648.2L1295.81 686.7L1295.81 763.7L1229.13 802.2L1162.44 763.7L1162.44 686.7zM1362.5 648.2L1429.18 686.7L1429.18 763.7L1362.5 802.2L1295.81 763.7L1295.81 686.7zM1429.18 763.7L1495.87 802.2L1495.87 879.2L1429.18 917.7L1362.5 879.2L1362.5 802.2z' stroke='rgba(6%2c 80%2c 156%2c 0.93)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1070'%3e%3crect width='1440' height='800' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"); */
+}
+/* .hex-layer-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 0fr);
+  margin: -18px 0px;
+  justify-content: center;
+  align-content: center;
+} */
+.hex-layer-5 {
+  display: grid;
+  justify-content: center;
+  margin: -18px 0px;
+  align-content: center;
+  grid-template-columns: repeat(5, 0fr);
+}
+.hex-layer-4 {
+  display: grid;
+  margin: -10px 0px;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 0fr);
+}
+/* .hex-layer-3 {
+  display: grid;
+  margin: -18px 0px;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, 0fr);
+}
+.hex-layer-2 {
+  display: grid;
+  margin: -18px 0px;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(2, 0fr);
+} */
+.hex {
+  height: 150px;
+  width: 150px;
+  align-self: center;
+  background: #20217c;
+  cursor: pointer;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    95% 25%,
+    95% 75%,
+    50% 100%,
+    5% 75%,
+    5% 25%
+  );
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  transition: background 0.4s;
+  display: flex;
+}
+.hex i{
+  margin: auto;
+  color: #fff;
+  font-size: 86px;
+}
+.hex:hover {
+  background: #4b4ed5;
+}
+/* Third Slide */
+/* Fourth slide */
 .fourth-slide{
     display: none;
     width: 100%;
@@ -771,10 +1132,75 @@ article {
     }
   }
 /* Second Slide */
+/* third slide */
+.third-slide{
+  display: none;
+  width: 100%;
+  height: 100%;
+}
 
+/* third slide */
 /* fifth slide */
 .fifth-slide{
     display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1025%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M644.103%2c97.756C660.034%2c97.462%2c676.754%2c93.58%2c684.991%2c79.94C693.459%2c65.918%2c691%2c48.167%2c682.509%2c34.16C674.342%2c20.688%2c659.831%2c13.399%2c644.103%2c12.493C626.333%2c11.469%2c606.69%2c14.197%2c597.184%2c29.245C587.194%2c45.061%2c589.944%2c66.064%2c600.514%2c81.499C609.905%2c95.212%2c627.485%2c98.063%2c644.103%2c97.756' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1239.2540499390207 489.8170280815548L1334.1459863233845 578.3051903127893 1422.634148554619 483.4132539284253 1327.7422121702552 394.92509169719085z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1114.25 122.97 a171.8 171.8 0 1 0 343.6 0 a171.8 171.8 0 1 0 -343.6 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1124.0074650596187 213.73133827336196L1018.0479780387388 319.69082529424185 1124.0074650596187 425.6503123151217 1229.9669520804985 319.6908252942418z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M897.39 461.45 a125.57 125.57 0 1 0 251.14 0 a125.57 125.57 0 1 0 -251.14 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M204.827%2c322.095C250.976%2c319.363%2c295.342%2c300.165%2c318.41%2c260.102C341.434%2c220.115%2c337.754%2c171.059%2c314.861%2c130.996C291.777%2c90.598%2c251.29%2c63.797%2c204.827%2c61.33C153.454%2c58.603%2c100.627%2c75.05%2c72.506%2c118.129C41.822%2c165.135%2c34.743%2c227.992%2c65.294%2c275.084C93.923%2c319.214%2c152.316%2c325.203%2c204.827%2c322.095' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M111.674%2c356.72C127.032%2c356.312%2c143.019%2c353.321%2c151.505%2c340.515C160.847%2c326.416%2c162.658%2c307.603%2c153.747%2c293.228C145.208%2c279.452%2c127.841%2c275.105%2c111.674%2c276.258C97.531%2c277.266%2c86.637%2c286.718%2c78.851%2c298.568C69.929%2c312.147%2c60.013%2c328.584%2c68%2c342.734C76.053%2c357.002%2c95.296%2c357.155%2c111.674%2c356.72' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M629.575%2c381.792C647.704%2c382.618%2c665.276%2c373.506%2c674.34%2c357.784C683.394%2c342.078%2c682.985%2c321.965%2c672.654%2c307.068C663.442%2c293.786%2c645.739%2c293.262%2c629.575%2c293.236C613.343%2c293.209%2c594.893%2c293.185%2c586.252%2c306.926C577.245%2c321.247%2c582.885%2c339.36%2c591.359%2c354.003C599.814%2c368.614%2c612.711%2c381.024%2c629.575%2c381.792' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1019.135%2c112.405C1047.177%2c112.691%2c1075.971%2c104.078%2c1090.732%2c80.234C1106.194%2c55.257%2c1104.96%2c23.264%2c1089.948%2c-1.987C1075.257%2c-26.697%2c1047.866%2c-41.159%2c1019.135%2c-40.194C991.951%2c-39.281%2c969.768%2c-21.012%2c956.107%2c2.508C942.374%2c26.152%2c936.417%2c55.082%2c950.02%2c78.801C963.679%2c102.618%2c991.68%2c112.125%2c1019.135%2c112.405' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M-84.94 537.86 a125.27 125.27 0 1 0 250.54 0 a125.27 125.27 0 1 0 -250.54 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1025'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e") !important;
 }
-
+.fifth-slide ul{
+  height: 75%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.fifth-slide ul a{
+  color: #6598cf;
+  text-decoration: none;
+}
+.fifth-slide ul li{
+  font-size: 8vmin;
+  width: 2em;
+  height: 2em;
+  display: grid;
+  place-items: center;
+  border: 0.125em solid;
+  border-radius: 50%;
+  position: relative;
+  filter: drop-shadow(0 0 0.05em black)
+}
+.fifth-slide ul li::before, .fifth-slide ul li::after{
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.fifth-slide ul li::before{
+  width: .75em;
+  height: .6em;
+  bottom: 100%;
+  background-image:
+    linear-gradient(to top, #6598cf 50%, transparent 0),
+    radial-gradient(circle at center, transparent 30%, #6598cf 0 50%, transparent 0);
+}
+.fifth-slide ul li::after{
+  width: 0.125em;
+  height: 100vh;
+  background: #6598cf;
+  bottom: calc(100% + .5em);
+}
+.fifth-slide ul a:nth-of-type(even){
+  margin-top: 10rem;
+}
+.fifth-slide ul a{
+  transition: transform .125s ease
+}
+.fifth-slide ul a:hover{
+  transform: scale(1.05)
+}
+.fifth-slide h3{
+  text-align: center;
+  color: #6598cf;
+  font-size: 1.5em;
+  filter: drop-shadow(2px 2px 2px black);
+}
 /* fifth slide */

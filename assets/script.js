@@ -11,6 +11,8 @@ const menuBorder = menu.querySelector(".menu__border");
 let activeItem = menu.querySelector(".active");
 const container = body.querySelector(".container")
 const firstSlide = body.querySelector('.first-slide')
+const secondSlide = body.querySelector('.second-slide')
+const thirdSilde = body.querySelector('.third-slide')
 const fourthSilde = body.querySelector('.fourth-slide')
 const fifthSilde = body.querySelector('.fifth-slide')
 const childOpen = body.querySelectorAll('.childOpen')
@@ -35,26 +37,36 @@ function clickItem(item, index) {
 }
 menuItems[0].addEventListener('click',()=>{
     firstSlide.style.display="block"
+    secondSlide.style.display="none"
+    thirdSilde.style.display="none"
     fourthSilde.style.display="none"
     fifthSilde.style.display="none"
 })
 menuItems[1].addEventListener('click',()=>{
     firstSlide.style.display="none"
+    secondSlide.style.display="flex"
+    thirdSilde.style.display="none"
     fourthSilde.style.display="none"
     fifthSilde.style.display="none"
 })
 menuItems[2].addEventListener('click',()=>{
     firstSlide.style.display="none"
+    secondSlide.style.display="none"
+    thirdSilde.style.display="flex"
     fourthSilde.style.display="none"
     fifthSilde.style.display="none"
 })
 menuItems[3].addEventListener('click',()=>{
     firstSlide.style.display="none"
+    secondSlide.style.display="none"
+    thirdSilde.style.display="none"
     fourthSilde.style.display="flex"
     fifthSilde.style.display="none"
 })
 menuItems[4].addEventListener('click',()=>{
     firstSlide.style.display="none"
+    secondSlide.style.display="none"
+    thirdSilde.style.display="none"
     fourthSilde.style.display="none"
     fifthSilde.style.display="block"
 })
@@ -91,9 +103,3 @@ childOpen.forEach((each)=>{each.addEventListener('click',()=>{
     each.classList.add('open')
 })})
 
-
-
-
-
-// firstSlide.style.display="none"
-// fourthSilde.style.display="flex"
